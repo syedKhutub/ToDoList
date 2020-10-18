@@ -13,11 +13,17 @@ code {
 }
 
 body {
-  padding: 50px;
-  background-color: #66CCFF;
+  background-color: #ffffff;
   font-family: sans-serif;
+}
+li {
+  list-style-type:none
 }
 .header {
   display: flex;
   justify-content: center;
+}
+
+.todolistmain {
+  text-align: -webkit-center;
 }

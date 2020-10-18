@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import ToDoItems from './ToDoItems'
+import ToDoItems from './ToDoItems';
+import Grid from '@material-ui/core/Grid';
+import Input from '@material-ui/core/Input';
+import Button from '@material-ui/core/Button';
 
 class ToDoList extends Component {
     constructor() {
@@ -48,34 +51,37 @@ class ToDoList extends Component {
         const filteredItems = this.state.tasks.filter( (tasks) => {
           return (tasks !== key);
         });
-       debugger;
         this.setState({
           tasks: filteredItems
         });
         
-        console.log(this.state)
       }
     
-    // masterSubmit = (e,x) => {
-    //     debugger;
-    //     console.log(x);
-    //     this.handleSubmit(e,x)
-    // }
+    
     render(){
         return (
-        
-             <div className="todolistmain"> 
-                 <div className="header">
-                    <h1> To Do List</h1>
-                 </div>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder="Enter Task" onChange={this.handleChange} value={this.state.value}/>
-                    <button type="submit">add</button>
-                </form>
-                <ToDoItems entries={this.state.tasks}
-                            delete={this.deleteItem}/>
+            <Grid className='todolistmain'>
+              
+                  <div className="header">
+                      <h1> Customer Reviews</h1>
+                  </div>
+                  <form onSubmit={this.handleSubmit}>
+                      <Input type="text" 
+                            placeholder="Add Review" 
+                            onChange={this.handleChange} 
+                            value={this.state.value}/>
 
-             </div>   
+                      <Button type="submit"
+                        variant="contained"
+                        color="primary"
+                        size="small"
+                        > Add
+                      </Button>
+                  </form>
+                  <ToDoItems entries={this.state.tasks}
+                              delete={this.deleteItem}/>
+
+             </Grid>   
         );
     }
     
